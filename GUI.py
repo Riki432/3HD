@@ -160,7 +160,10 @@ while True:
         if search_event == "Open":
             f = search_values["Files"]
             if not len(f) == 0:
-                openFile(f[0])
+                if os.path.exists(os.path.join(search_window["search_input"].Get().strip(), f[0])):
+                    openFile(f[0])
+                else:
+                    sg.Popup("Error", "Something went wrong")
 
         if search_event == "search_folder":
             search_window["search_folder"].Update(disabled=True)

@@ -172,7 +172,7 @@ def findNamesFromFolder(name: str, folder: str, matchWhole: bool, cache):
         print("Searched {}/{} files".format(counter,count))
         counter = counter + 1
         if not os.stat(os.path.join(folder ,f)).st_size / 1024 > 10:
-            break
+            continue
         if isImage(f):
             if cache is not None:
                 _text = cache.get(f, None)
