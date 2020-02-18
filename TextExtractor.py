@@ -10,3 +10,10 @@ def getText(filename):
     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
     text = pytesseract.image_to_string(gray)
     return text
+
+def hasOCR():
+    try:
+        pytesseract.get_tesseract_version()
+        return True
+    except:
+        return False

@@ -4,6 +4,7 @@ import PySimpleGUI as sg
 #Functionality related imports 
 from main import copyFiles, moveFiles, findNamesFromFolder, openFile, isImage
 from Cache import storeCacheData, getCacheData, cleanCache, clearCache
+from TextExtractor import hasOCR
 
 import os
 from shutil import SameFileError
@@ -121,6 +122,9 @@ while True:
             sg.Popup("Done!", "Moved {} files.".format(copy_count))
 
     if event == 'Search':
+        if not hasOCR():
+            sg.Popup("Error","Please install Tesseract OCR to continue!")
+            continue
         s_window = True  
         search_layout = [
             [
