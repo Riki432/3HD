@@ -182,8 +182,8 @@ def findNamesFromFolder(name: str, folder: str, matchWhole: bool, cache):
                 else:
                     text = _text[1]
                 
-            if len(text) < len(name):
-                break
+            # if len(text) < len(name):
+            #     continue
             if matchWhole:
                 if(text.lower().find(name.lower()) != -1):
                     res.append(f)
